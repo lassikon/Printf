@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:12:47 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/09 20:01:09 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:03:30 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	format_printer(char spec, va_list ap)
 		count += nbr_printer((long)(va_arg(ap, unsigned int)), 16, 0);
 	else if (spec == 'X')
 		count += nbr_printer((long)(va_arg(ap, unsigned int)), 16, 1);
+	else
+		count += write(1, &spec, 1);
 	return (count);
 }
 
