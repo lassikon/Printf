@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   digit_printer.c                                    :+:      :+:    :+:   */
+/*   nbr_printer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:29 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/09 12:52:04 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/09 20:08:30 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	digit_printer(long n, base int, case x)
+int	nbr_printer(long nbr, int base, int upper_case)
 {
-	
+	int		count;
+	char	*lower;
+	char	*upper;
+
+	count = 0;
+	lower = "0123456789abcdef";
+	upper = "0123456789ABCDEF";
+	if (nbr < 0)
+	{
+		count += char_printer('-');
+		nbr = -nbr;
+	}
+	if (nbr >= base)
+	{
+		nbr_printer(nbr / base, base, upper_case);
+		nbr = nbr % base;
+	}
+	if (upper_case)
+		return (count += char_printer(upper[count]));
+	return (count += char_printer(lower[count]));
 }
-
-/* void	ft_putnbr_fd(int n, int fd)
-{
-	long	nbl;
-
-	nbl = n;
-	if (nbl < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nbl = -nbl;
-	}
-	if (nbl >= 10)
-	{
-		ft_putnbr_fd(nbl / 10, fd);
-		nbl = nbl % 10;
-	}
-	ft_putchar_fd(nbl + '0', fd);
-} */
