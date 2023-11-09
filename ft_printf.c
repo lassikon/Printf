@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:42:39 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/09 10:57:10 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/09 20:16:34 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int	ft_printf(const char *format, ...)
 		count++;
 	}
 	va_end(ap);
+	return (count);
 }

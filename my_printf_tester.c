@@ -6,13 +6,13 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:38:02 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/09 20:01:03 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/09 20:20:14 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <limits.h>
 #include "libftprintf.h"
-#include "limits.h"
 
 int	main(void)
 {

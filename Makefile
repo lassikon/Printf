@@ -6,6 +6,8 @@ CFLAGS = -Wall -Wextra -Werror
 SOURCES = ft_printf.c \
 			format_printer.c \
 			char_printer.c \
+			str_printer.c \
+			nbr_printer.c
 
 # Generate object file names from source file names
 OBJECTS = $(SOURCES:.c=.o)
