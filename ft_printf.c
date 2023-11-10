@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:42:39 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/09 20:16:34 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:52:40 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_printf(const char *format, ...)
 	while (format[count] != '\0')
 	{
 		if (format[count] == '%')
-			count = count + format_printer(format[count + 1], ap);
+			count = count + format_eval(format[count + 1], ap);
 		else
 			count = count + write(1, format, 1);
 		count++;

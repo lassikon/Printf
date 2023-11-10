@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 # Define source files for main library
 SOURCES = ft_printf.c \
-			format_printer.c \
+			format_eval.c \
 			char_printer.c \
 			str_printer.c \
 			nbr_printer.c
@@ -28,7 +28,7 @@ re: fclean all
 
 # Rule to clean up object files
 clean:
-	rm -f $(OBJECTS) $(BONUS_OBJECTS)
+	rm -f $(OBJECTS)
 
 # Rule to clean up object files AND library
 fclean: clean

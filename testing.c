@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 20:24:06 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/09 21:59:55 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/10 12:08:22 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include <stdio.h>
 #include <limits.h>
 #include <stdarg.h>
+#include "libftprintf.h"
 
-int	char_printer(int c)
+/* int	char_printer(int c)
 {
 	return (write(1, &c, 1));
 }
@@ -29,7 +30,7 @@ int	str_printer(char *str)
 		count += char_printer(str[count]);
 	return (count);
 }
-/* int	nbr_printer(long nbr, int base, int upper_case)
+int	nbr_printer(long nbr, int base, int upper_case)
 {
 	int		count;
 	char	*lower;
@@ -43,20 +44,17 @@ int	str_printer(char *str)
 		char_printer('-');
 		return (nbr_printer(-nbr, base, upper_case) + 1);
 	}
-	if (nbr < base)
-	{
-		if (upper_case)
-			return (count += char_printer(upper[nbr]));
-		return (count += char_printer(lower[nbr]));
-	}
-	else
+	if (nbr >= base)
 	{
 		count = nbr_printer(nbr / base, base, upper_case);
 		return (count + nbr_printer(nbr % base, base, upper_case));
 	}
+	if (upper_case)
+		return (count += char_printer(upper[nbr]));
+	return (count += char_printer(lower[nbr]));
 } */
 
-int	nbr_printer(long nbr, int base, int upper_case)
+/* int	nbr_printer(long nbr, int base, int upper_case)
 {
 	int		count;
 	char	*lower;
@@ -77,9 +75,9 @@ int	nbr_printer(long nbr, int base, int upper_case)
 	if (upper_case)
 		return (count += char_printer(upper[nbr]));
 	return (count += char_printer(lower[nbr]));
-}
+} */
 
-int	format_printer(char spec, va_list ap)
+/* int	format_printer(char spec, va_list ap)
 {
 	int	count;
 
@@ -125,36 +123,73 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(ap);
 	return (count);
-}
+} */
 
 int	main(void)
 {
 	int	ret;
+	int	ft_ret;
+
 	ft_printf("printf\n");
 	ret = printf("a\n");
 	printf("The return value is: %d\n\n", ret);
 	ft_printf("ft_printf\n");
-	ret = ft_printf("a\n");
-	ft_printf("The return value is: %d\n\n", ret);
+	ft_ret = ft_printf("a\n");
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n");
 
 	ft_printf("printf\n");
 	ret = printf("%d\n", 525);
 	printf("The return value is: %d\n\n", ret);
 	ft_printf("ft_printf\n");
-	ret = ft_printf("%d\n", 525);
-	ft_printf("The return value is: %d\n\n", ret);
+	ft_ret = ft_printf("%d\n", 525);
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
 
 	ft_printf("printf\n");
 	ret = printf("%x\n", 1000);
 	printf("The return value is: %d\n\n", ret);
 	ft_printf("ft_printf\n");
-	ret = ft_printf("%x\n", 1000);
-	ft_printf("The return value is: %d\n\n", ret);
+	ft_ret = ft_printf("%x\n", 1000);
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
 
 	ft_printf("printf\n");
 	ret = printf("%i\n", -2349823);
 	printf("The return value is: %d\n\n", ret);
 	ft_printf("ft_printf\n");
-	ret = ft_printf("%i\n", -2349823);
-	ft_printf("The return value is: %d\n\n", ret);
+	ft_ret = ft_printf("%i\n", -2349823);
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
+
+	ft_printf("printf\n");
+	ret = printf("%i\n%c\n%i\n", -2349823, 'a', 666);
+	printf("The return value is: %d\n\n", ret);
+	ft_printf("ft_printf\n");
+	ft_ret = ft_printf("%i\n%c\n%i\n", -2349823, 'a', 666);
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
+
+	ft_printf("printf\n");
+	ret = printf("%i\n", INT_MAX);
+	printf("The return value is: %d\n\n", ret);
+	ft_printf("ft_printf\n");
+	ft_ret = ft_printf("%i\n", INT_MAX);
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
+
+	ft_printf("printf\n");
+	ret = printf("%i\n", INT_MIN);
+	printf("The return value is: %d\n\n", ret);
+	ft_printf("ft_printf\n");
+	ft_ret = ft_printf("%i\n", INT_MIN);
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
 }

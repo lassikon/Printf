@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:29 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/09 22:01:03 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:55:17 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,18 @@ int	nbr_printer(long nbr, int base, int upper_case)
 	char	*lower;
 	char	*upper;
 
+	count = 0;
 	lower = "0123456789abcdef";
 	upper = "0123456789ABCDEF";
 	if (nbr < 0)
 	{
-		count += char_printer('-');
-		nbr = -nbr;
+		char_printer('-');
+		return (nbr_printer(-nbr, base, upper_case) + 1);
 	}
 	if (nbr >= base)
 	{
-		nbr_printer(nbr / base, base, upper_case);
-		nbr = nbr % base;
+		count = nbr_printer(nbr / base, base, upper_case);
+		return (count + nbr_printer(nbr % base, base, upper_case));
 	}
 	if (upper_case)
 		return (count += char_printer(upper[nbr]));

@@ -6,13 +6,13 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:12:47 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/09 22:03:30 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/10 11:52:17 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	format_printer(char spec, va_list ap)
+int	format_eval(char spec, va_list ap)
 {
 	int	count;
 
