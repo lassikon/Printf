@@ -6,11 +6,11 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:34:51 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/11 10:49:20 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/11 11:07:55 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	str_printer(char *str)
 {

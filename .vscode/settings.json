@@ -1,5 +1,6 @@
 {
 	"files.associations": {
-		"*.a": "c"
+		"*.a": "c",
+		"ft_printf.h": "c"
 	}
 }

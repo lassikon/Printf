@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_printer.c                                   :+:      :+:    :+:   */
+/*   format_eval.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:12:47 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/10 11:52:17 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:41:31 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	format_eval(char spec, va_list ap)
 {
@@ -27,12 +27,15 @@ int	format_eval(char spec, va_list ap)
 		count += nbr_printer((long)(va_arg(ap, int)), 10, 0);
 	else if (spec == 'u')
 		count += nbr_printer((long)(va_arg(ap, unsigned int)), 10, 0);
-	else if (spec == 'p')
-		count += nbr_printer((long)(va_arg(ap, unsigned long)), 16, 0);
 	else if (spec == 'x')
 		count += nbr_printer((long)(va_arg(ap, unsigned int)), 16, 0);
 	else if (spec == 'X')
 		count += nbr_printer((long)(va_arg(ap, unsigned int)), 16, 1);
+	else if (spec == 'p')
+	{
+		str_printer("0x");
+		count += 2 + ptr_printer((unsigned long)va_arg(ap, void *));
+	}
 	else
 		count += write(1, &spec, 1);
 	return (count);

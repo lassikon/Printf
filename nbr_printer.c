@@ -6,11 +6,11 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:41:29 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/10 11:55:17 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/11 11:07:51 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	nbr_printer(long nbr, int base, int upper_case)
 {
