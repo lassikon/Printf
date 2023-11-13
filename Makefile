@@ -8,7 +8,7 @@ SOURCES = ft_printf.c \
 			char_printer.c \
 			str_printer.c \
 			nbr_printer.c \
-			ptr_printer.c
+			ptr_printer.c \
 
 # Generate object file names from source file names
 OBJECTS = $(SOURCES:.c=.o)
@@ -19,7 +19,7 @@ NAME = libftprintf.a
 # Rule to build the main library
 $(NAME):
 	$(CC) $(CFLAGS) -c $(SOURCES)
-	ar -rs $(NAME) $(OBJECTS)
+	ar -rcs $(NAME) $(OBJECTS)
 
 # Default target, builds the main library
 all: $(NAME)

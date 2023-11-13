@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:38:02 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/11 13:42:18 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:02:53 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,21 +129,57 @@ int	main(void)
 	if (ret != ft_ret)
 		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
 	
-	/* ft_printf("printf\n");
-	ret = printf("%p", 1);
+	ft_printf("printf\n");
+	ret = printf("%y <- what?\n");
 	printf("The return value is: %d\n\n", ret);
 	ft_printf("ft_printf\n");
-	ft_ret = ft_printf("%p", 1);
+	ft_ret = ft_printf("%y <- what?\n");
 	ft_printf("The return value is: %d\n\n", ft_ret);
 	if (ret != ft_ret)
 		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
 	
 	ft_printf("printf\n");
-	ret = printf("%p", 66666);
+	ret = printf("ends in %");
 	printf("The return value is: %d\n\n", ret);
 	ft_printf("ft_printf\n");
-	ft_ret = ft_printf("%p", 66666);
+	ft_ret = ft_printf("ends in %");
 	ft_printf("The return value is: %d\n\n", ft_ret);
 	if (ret != ft_ret)
-		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n"); */
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
+	
+	ft_printf("printf\n");
+	ret = printf("%s", (char *)NULL);
+	printf("The return value is: %d\n\n", ret);
+	ft_printf("ft_printf\n");
+	ft_ret = ft_printf("%s", (char *)NULL);
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
+
+	ft_printf("printf\n");
+	ret = printf("%p", (char *)'c');
+	printf("The return value is: %d\n\n", ret);
+	ft_printf("ft_printf\n");
+	ft_ret = ft_printf("%p", (char *)'c');
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
+	
+	ft_printf("printf\n");
+	ret = printf("%d", -10);
+	printf("The return value is: %d\n\n", ret);
+	ft_printf("ft_printf\n");
+	ft_ret = ft_printf("%d", -10);
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
+	
+	ft_printf("printf\n");
+	ret = printf("%p", "");
+	printf("The return value is: %d\n\n", ret);
+	ft_printf("ft_printf\n");
+	ft_ret = ft_printf("%p", "");
+	ft_printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
 }

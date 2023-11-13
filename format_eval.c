@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:12:47 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/11 13:41:31 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:16:02 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	format_eval(char spec, va_list ap)
 	int	count;
 
 	count = 0;
-	if (spec == '%')
-		count += write(1, "%", 1);
-	else if (spec == 'c')
+	if (spec == 'c')
 		count += char_printer(va_arg(ap, int));
 	else if (spec == 's')
 		count += str_printer(va_arg(ap, char *));
@@ -37,7 +35,7 @@ int	format_eval(char spec, va_list ap)
 		count += 2 + ptr_printer((unsigned long)va_arg(ap, void *));
 	}
 	else
-		count += write(1, &spec, 1);
+		count += char_printer(spec);
 	return (count);
 }
 
