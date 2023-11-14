@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:12:47 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/14 12:36:11 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:18:07 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	format_eval(char spec, va_list ap, p_list *ret)
 	else if (spec == 's')
 		str_printer(va_arg(ap, char *), ret);
 	else if (spec == 'd' || spec == 'i')
-		nbr_printer((long)(va_arg(ap, int)), 10, 0, ret);
+		dec_printer((long)(va_arg(ap, int)), ret);
 	else if (spec == 'u')
-		nbr_printer((long)(va_arg(ap, unsigned int)), 10, 0, ret);
+		dec_printer((long)(va_arg(ap, unsigned int)), ret);
 	else if (spec == 'x')
 		hex_printer((long)(va_arg(ap, unsigned int)), 0, ret);
 	else if (spec == 'X')

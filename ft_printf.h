@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:44:48 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/14 12:37:57 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:09:13 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_printf(const char *format, ...);
 void	format_eval(char spec, va_list ap, p_list *ret);
 void	char_printer(int c, p_list *ret);
 void	str_printer(char *str, p_list *ret);
-void	nbr_printer(long n, int base, int upper, p_list *ret);
+void	dec_printer(long n, p_list *ret);
 void	ptr_printer(unsigned long nbr, p_list *ret);
 void	hex_printer(long nbr, int upper_case, p_list *ret);
 

@@ -7,7 +7,7 @@ SOURCES = ft_printf.c \
 			format_eval.c \
 			char_printer.c \
 			str_printer.c \
-			nbr_printer.c \
+			dec_printer.c \
 			ptr_printer.c \
 			hex_printer.c
 

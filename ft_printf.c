@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:42:39 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/14 12:21:59 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:04:09 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,24 @@ int	ft_printf(const char *str, ...)
 {
 	va_list		ap;
 	p_list		ret;
+	int			i;
 
 	ret.length = 0;
 	ret.error = 0;
+	i = 0;
 	va_start(ap, str);
-	while (*str != '\0')
+	while (str[i] != '\0')
 	{
-		if (*str == '%')
+		if (str[i] == '%')
 		{
-			if (*(str + 1) == '\0')
+			if (str[i + 1] == '\0')
 				break ;
-			format_eval(*(str + 1), ap, &ret);
-			ret.length -= 1;
-			str++;
+			format_eval(str[i + 1], ap, &ret);
+			i++;
 		}
-		char_printer(*str, &ret);
-		str++;
+		else
+			char_printer(str[i], &ret);
+		i++;
 	}
 	va_end(ap);
 	if (ret.error == -1)
