@@ -9,6 +9,7 @@ SOURCES = ft_printf.c \
 			str_printer.c \
 			nbr_printer.c \
 			ptr_printer.c \
+			hex_printer.c
 
 # Generate object file names from source file names
 OBJECTS = $(SOURCES:.c=.o)

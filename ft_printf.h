@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 09:44:48 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/13 10:34:25 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:37:57 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,18 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-int	ft_printf(const char *format, ...);
-int	format_eval(char spec, va_list ap);
-int	char_printer(int c);
-int	str_printer(char *str);
-int	nbr_printer(long n, int base, int upper);
-int	ptr_printer(unsigned long nbr);
+typedef struct p_list
+{
+	int	length;
+	int	error;
+}		p_list;
+
+int		ft_printf(const char *format, ...);
+void	format_eval(char spec, va_list ap, p_list *ret);
+void	char_printer(int c, p_list *ret);
+void	str_printer(char *str, p_list *ret);
+void	nbr_printer(long n, int base, int upper, p_list *ret);
+void	ptr_printer(unsigned long nbr, p_list *ret);
+void	hex_printer(long nbr, int upper_case, p_list *ret);
 
 #endif

@@ -6,13 +6,16 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:04:37 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/11 11:07:42 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:15:03 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	char_printer(int c)
+void	char_printer(int c, p_list *ret)
 {
-	return (write(1, &c, 1));
+	if (write(1, &c, 1) < 0)
+		ret->error = -1;
+	else
+		ret->length += 1;
 }

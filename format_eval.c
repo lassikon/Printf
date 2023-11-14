@@ -6,37 +6,34 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:12:47 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/13 15:16:02 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:36:11 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	format_eval(char spec, va_list ap)
+void	format_eval(char spec, va_list ap, p_list *ret)
 {
-	int	count;
 
-	count = 0;
 	if (spec == 'c')
-		count += char_printer(va_arg(ap, int));
+		char_printer(va_arg(ap, int), ret);
 	else if (spec == 's')
-		count += str_printer(va_arg(ap, char *));
+		str_printer(va_arg(ap, char *), ret);
 	else if (spec == 'd' || spec == 'i')
-		count += nbr_printer((long)(va_arg(ap, int)), 10, 0);
+		nbr_printer((long)(va_arg(ap, int)), 10, 0, ret);
 	else if (spec == 'u')
-		count += nbr_printer((long)(va_arg(ap, unsigned int)), 10, 0);
+		nbr_printer((long)(va_arg(ap, unsigned int)), 10, 0, ret);
 	else if (spec == 'x')
-		count += nbr_printer((long)(va_arg(ap, unsigned int)), 16, 0);
+		hex_printer((long)(va_arg(ap, unsigned int)), 0, ret);
 	else if (spec == 'X')
-		count += nbr_printer((long)(va_arg(ap, unsigned int)), 16, 1);
+		hex_printer((long)(va_arg(ap, unsigned int)), 1, ret);
 	else if (spec == 'p')
 	{
-		str_printer("0x");
-		count += 2 + ptr_printer((unsigned long)va_arg(ap, void *));
+		str_printer("0x", ret);
+		ptr_printer((unsigned long)va_arg(ap, void *), ret);
 	}
 	else
-		count += char_printer(spec);
-	return (count);
+		char_printer(spec, ret);
 }
 
 /* c = va_arg(args, int)

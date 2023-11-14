@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:38:02 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/13 13:02:53 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/14 12:30:58 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	if (ret != ft_ret)
 		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n");
 
-	ft_printf("printf\n");
+	printf("printf\n");
 	ret = printf("%d\n", 525);
 	printf("The return value is: %d\n\n", ret);
 	ft_printf("ft_printf\n");
