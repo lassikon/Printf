@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 19:12:47 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/14 14:18:07 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:07:10 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	format_eval(char spec, va_list ap, p_list *ret)
 {
-
 	if (spec == 'c')
 		char_printer(va_arg(ap, int), ret);
 	else if (spec == 's')

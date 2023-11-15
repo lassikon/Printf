@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:33:27 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/14 13:48:50 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:07:13 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ void	hex_printer(long nbr, int upper_case, p_list *ret)
 
 	lower = "0123456789abcdef";
 	upper = "0123456789ABCDEF";
-	if (nbr < 0)
-	{
-		char_printer('-', ret);
-		nbr = -nbr;
-	}
 	if (nbr >= 16)
 	{
 		hex_printer(nbr / 16, upper_case, ret);

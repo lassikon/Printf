@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:34:51 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/14 15:29:28 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:08:52 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	str_printer(char *str, p_list *ret)
 {
 	int	i;
 
-	if (str == NULL)
-		str_printer("(null)", ret);
+	if (!str)
+		str = "(null)";
 	i = 0;
 	while (str[i] != '\0')
 	{

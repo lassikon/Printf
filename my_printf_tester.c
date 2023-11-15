@@ -6,7 +6,7 @@
 /*   By: lkonttin <lkonttin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 10:38:02 by lkonttin          #+#    #+#             */
-/*   Updated: 2023/11/14 14:34:23 by lkonttin         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:07:14 by lkonttin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,10 +184,19 @@ int	main(void)
 		ft_printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
 	
 	ft_printf("printf\n");
-	ret = printf("%p", "");
+	ret = printf("%p\n", "");
 	printf("The return value is: %d\n\n", ret);
 	ft_printf("ft_printf\n");
-	ft_ret = ft_printf("%p", "");
+	ft_ret = ft_printf("%p\n", "");
+	printf("The return value is: %d\n\n", ft_ret);
+	if (ret != ft_ret)
+		printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
+
+	ft_printf("printf\n");
+	ret = printf("\001\002\007\v\010\f\r\n");
+	printf("The return value is: %d\n\n", ret);
+	ft_printf("ft_printf\n");
+	ft_ret = ft_printf("\001\002\007\v\010\f\r\n");
 	printf("The return value is: %d\n\n", ft_ret);
 	if (ret != ft_ret)
 		printf("ERROR: DIFFERENT RETURN VALUE!\n\n");
